@@ -1,6 +1,6 @@
-<form action="" class="d-flex my-5">
+<form action="" class="d-flex my-5" (ngSubmit)="searchKeyword()" #searchForm="ngForm">
   <div class="form-group">
-    <input type="text" class="form-control">
+    <input type="text" class="form-control" [(ngModel)]="keyword" name="search">
   </div>
-  <button class="btn btn-success mx-3 mx-lg-5" (click)="search()">Search</button>
+  <button class="btn btn-success mx-3 mx-lg-5" type="submit">Search</button>
 </form>
