@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.gitUserService.searchGithub('search/users','githaefrancis');
+    // this.gitUserService.searchGithub('search/users','githaefrancis');
   }
 
 }

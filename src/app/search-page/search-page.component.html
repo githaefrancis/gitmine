@@ -2,7 +2,13 @@
   <app-search-bar></app-search-bar>
 
   <h1>Users</h1>
-  
+ <button (click)="showUsers()">LOAD</button>
+  <ul>
+    <li *ngFor="let user of users">
+      {{user.login}}
+    </li>
+
+  </ul>
   <hr>
   
   <h1>Repositories</h1>
