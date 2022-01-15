@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,ParamMap } from '@angular/router';
 import { HttpService } from '../http-client/http.service';
 import { User } from '../user';
+import { Repository } from '../repository';
 @Component({
   selector: 'app-search-page',
   templateUrl: './search-page.component.html',
@@ -9,20 +10,29 @@ import { User } from '../user';
 })
 export class SearchPageComponent implements OnInit {
   
-  users:User[]=[new User("Ra","Fra",[])];
-  userss:any[]=[];
+  users:User[]=[];
+  repositories:Repository[]=[]
   constructor(private route:ActivatedRoute,private http:HttpService) { }
 
 
   showUsers(){
     console.log(this.users);
   }
-  ngOnInit(): void {
+  loadResults(){
+    this.users.slice();
+    this.repositories.slice();
+    console.log("we just reloaded");
     let query=this.route.snapshot.paramMap.get('query');
     console.log(`Your search query is ${query}`)
     this.http.searchGithub('search/users',query);
     this.users=this.http.users;
+    this.http.searchGithub('search/repositories',query);
+    this.repositories=this.http.repos;
     console.log(this.users);
+    console.log(this.repositories);
+  }
+  ngOnInit(): void {
+    this.loadResults();
     
   }
 
