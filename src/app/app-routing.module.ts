@@ -8,7 +8,7 @@ const routes: Routes = [
   {path:'home',component:HomeComponent},
   {path:'search',component:SearchPageComponent},
   {path:'search/:query',component:SearchPageComponent},
-  {path:'user',component:SingleUserComponent},
+  {path:'user/:query/:query2',component:SingleUserComponent},
   {path:'',redirectTo:'/home',pathMatch:'full'}
 ];
 

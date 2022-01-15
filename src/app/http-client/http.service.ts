@@ -40,7 +40,7 @@ export class HttpService {
     }
     
     let promise = new Promise((resolve, reject) => {
-      this.http.get<ApiRepositoryResponse>(`${this.apiUrl}/${path}?q=${query}`,this.header)
+      this.http.get<ApiRepositoryResponse>(`${this.apiUrl}/${path}${query}`,this.header)
 
         .toPromise()
         .then(
@@ -79,9 +79,17 @@ export class HttpService {
 
       var results = response.items;
       for (let result of results) {
+        this.repos.push(new Repository(result['id'], result['full_name'], result['description'], result['owner']['login'], result['forks'], result['url']))
+      }
+    }
+    else if (type=="users") {
+
+      var results = response;
+      for (let result of results) {
         this.repos.push(new Repository(result['id'], result['full_name'], result['description'], result['owner'], result['forks'], result['url']))
       }
     }
+    
   }
 
 }

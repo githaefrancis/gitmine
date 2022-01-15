@@ -26,7 +26,7 @@ export class SearchPageComponent implements OnInit {
     console.log(`Your search query is ${query}`)
     this.http.searchGithub('search/users',query);
     this.users=this.http.users;
-    this.http.searchGithub('search/repositories',query);
+    this.http.searchGithub('search/repositories',`?q=${query}`);
     this.repositories=this.http.repos;
     console.log(this.users);
     console.log(this.repositories);
