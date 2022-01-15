@@ -7,7 +7,8 @@ import { User } from '../user';
 })
 export class HttpService {
 
-  user!:User;
+  // user!:User;
+  users!:User[];
   apiUrl: string = 'https://api.github.com';
   header: any = {
     headers: new HttpHeaders()
@@ -15,7 +16,7 @@ export class HttpService {
   };
   constructor(private http: HttpClient) { 
 
-    this.user=new User("","",[]);
+    this.users=[];
   }
   
   public searchGithub(path:any,query:any) {
@@ -31,13 +32,14 @@ export class HttpService {
       .then(
         response => {
           if(response){
-            this.user.items=response.items
+            // this.user.items=response.items
             var results=response.items;
             for(let result of results){
+              this.users.push(new User(result['login'],result['login'],result))
               console.log(result);
             }
             console.log(response);
-            console.log(this.user.items)
+            console.log(this.users)
             resolve(true);
           }
 

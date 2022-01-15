@@ -21,7 +21,7 @@ export class SearchPageComponent implements OnInit {
     let query=this.route.snapshot.paramMap.get('query');
     console.log(`Your search query is ${query}`)
     this.http.searchGithub('search/users',query);
-    this.users=[this.http.user];
+    this.users=this.http.users;
     console.log(this.users);
     
   }
