@@ -17,7 +17,30 @@
 
   <h1 class="text-center">Repositories</h1>
 
-  <div class="row">
+  <div class="row my-5" >
+
+    <div class="col-lg-4" *ngFor="let repository of repositories">
+
+      <div class="card p-4 mb-3">
+        <div class="my-2">
+
+          <span class="mb-5"><strong>{{repository.name}}</strong></span>
+          <p *ngIf="repository.description">{{repository.description}}</p>
+          <p *ngIf="!repository.description">No desciption provided.</p>
+          <a href="{{repository.link}}">Github Link</a>
+        </div>
+        <div class="mt-5">
+          Languages
+        </div>
+        <div class="mt-5">
+          Starred
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <!-- <div class="row mb-5">
 
     <div *ngFor="let repository of repositories" class="col-3">
       <img src="" alt="">
@@ -26,5 +49,5 @@
     <div *ngIf="repositories.length<1">
       <p>No repository found.</p>
     </div>
-  </div>
+  </div> -->
 </div>
