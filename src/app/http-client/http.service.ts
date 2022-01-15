@@ -40,7 +40,7 @@ export class HttpService {
     }
     
     let promise = new Promise((resolve, reject) => {
-      this.http.get<ApiRepositoryResponse>(`${this.apiUrl}/${path}?q=${query}`)
+      this.http.get<ApiRepositoryResponse>(`${this.apiUrl}/${path}?q=${query}`,this.header)
 
         .toPromise()
         .then(

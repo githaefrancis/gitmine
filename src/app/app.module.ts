@@ -9,6 +9,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { SearchPageComponent } from './search-page/search-page.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { FormsModule } from '@angular/forms';
+import { SingleUserComponent } from './single-user/single-user.component';
+import { SingleRepoComponent } from './single-repo/single-repo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +18,8 @@ import { FormsModule } from '@angular/forms';
     NavBarComponent,
     SearchPageComponent,
     SearchBarComponent,
+    SingleUserComponent,
+    SingleRepoComponent,
     
   ],
   imports: [
