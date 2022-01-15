@@ -24,7 +24,7 @@ export class SearchPageComponent implements OnInit {
     console.log("we just reloaded");
     let query=this.route.snapshot.paramMap.get('query');
     console.log(`Your search query is ${query}`)
-    this.http.searchGithub('search/users',query);
+    this.http.searchGithub('search/users',`?q=${query}`);
     this.users=this.http.users;
     this.http.searchGithub('search/repositories',`?q=${query}`);
     this.repositories=this.http.repos;

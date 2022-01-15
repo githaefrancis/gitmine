@@ -1,12 +1,12 @@
 <div class="container">
   <!-- <app-search-bar (searchKey)="loadResults()"></app-search-bar> -->
 
-  <h1>Users</h1>
+  <h1 class="text-center">Users</h1>
   <!-- <button (click)="showUsers()">LOAD</button> -->
   <div class="row">
     <div *ngFor="let user of users" class="col-3">
       <img src="{{ user.avatar }}" alt="" class="img-fluid" />
-      <p>{{ user.login }}</p>
+      <p class="text-center mt-2">{{ user.login }}</p>
     </div>
 
     <div *ngIf="users.length<1">
@@ -15,7 +15,7 @@
   </div>
   <hr />
 
-  <h1>Repositories</h1>
+  <h1 class="text-center">Repositories</h1>
 
   <div class="row">
 
