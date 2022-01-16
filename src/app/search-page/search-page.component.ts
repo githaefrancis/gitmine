@@ -22,8 +22,8 @@ export class SearchPageComponent implements OnInit {
     this.router.navigate(['user',login,'repos'])
   }
   loadResults(){
-    this.users.slice();
-    this.repositories.slice();
+    this.users.splice(0);
+    this.repositories.splice(0);
     console.log("we just reloaded");
     let query=this.route.snapshot.paramMap.get('query');
     console.log(`Your search query is ${query}`)

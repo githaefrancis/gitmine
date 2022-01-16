@@ -41,6 +41,7 @@ export class HttpService {
       link: string;
     }
     
+
     let promise = new Promise((resolve, reject) => {
       this.http.get<ApiRepositoryResponse>(`${this.apiUrl}/${path}${query}`,this.header)
 
@@ -70,22 +71,24 @@ export class HttpService {
 
   prepareResponse(type: string, response: any) {
     if (type == "search/users") {
+      this.users.splice(0);
       var results = response.items;
       for (let result of results) {
         this.users.push(new User(result['login'], result['login'], result, result['avatar_url']))
         console.log(result);
       }
+      console.log(this.users);
     }
 
     else if (type == "search/repositories") {
-
+      this.repos.splice(0);
       var results = response.items;
       for (let result of results) {
         this.repos.push(new Repository(result['id'], result['full_name'], result['description'], result['owner']['login'], result['forks'], result['url']))
       }
     }
     else if (type=="users") {
-
+      this.repos.splice(0);
       var results = response;
       for (let result of results) {
         this.repos.push(new Repository(result['id'], result['full_name'], result['description'], result['owner'], result['forks'], result['url']))
