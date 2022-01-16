@@ -7,14 +7,19 @@
     </div>
     <div class="col-lg-6 p-5 mx-5">
      <p> Name: {{user.login}}</p>
-      <p> Description</p>
-      <p>Languages</p>
+      
+     <p> Bio:
+       <span *ngIf="user.metadata.bio">{{user.metadata.bio}}</span>
+       <span *ngIf="!user.metadata.bio">No Bio data provided</span>
+     </p>
+      <p>Following: {{user.metadata.following}}</p>
       <p>Followers: {{user.metadata.followers}}</p>
+      <p>Created on: {{user.metadata.createdAt}}</p>
     </div>
   </div>
 
   <div class="row mt-5" >
-
+    <h1 class="text-center mb-4">Public Repositories</h1>
     <div class="col-lg-4" *ngFor="let repository of userRepos">
 
       <div class="card p-4 mb-3">
