@@ -9,9 +9,9 @@ import { Repository } from '../repository-class/repository';
   styleUrls: ['./single-repo.component.css']
 })
 export class SingleRepoComponent implements OnInit {
-  singleRepo!:Repository;
+  singleRepo:Repository[];
   constructor(private repoService:HttpService,private route:ActivatedRoute) { 
-    
+     this.singleRepo=[]
   }
   
   ngOnInit(): void {

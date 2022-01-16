@@ -14,7 +14,7 @@ export class HttpService {
   users!: User[];
   userMetadata!:UserMetadata;
   repos!: Repository[];
-  singleRepo!:Repository;
+  singleRepo!:Repository[];
   apiUrl: string = environment.apiUrl
   accessToken:string=environment.accessToken;
   header: any = {
@@ -25,6 +25,7 @@ export class HttpService {
     this.userMetadata=new UserMetadata("",0,0,0,new Date(16,0,2022));
     this.users = [];
     this.repos=[];
+    this.singleRepo=[];
     
   }
 
@@ -56,7 +57,7 @@ export class HttpService {
               // this.user.items=response.items
               this.prepareResponse(path, response,query);
               console.log(response);
-              console.log(this.users)
+              // console.log(this.users);
               resolve(true);
             }
 
@@ -116,10 +117,11 @@ export class HttpService {
     }
 
     else if(type=='repos'){
+      this.singleRepo.splice(0);
       var results=response;
       var owner=results['owner'];
       console.log(results);
-      this.singleRepo=new Repository(results['id'],results['full_name'],results['description'],results['owner']['login'],results['forks_count'],results['git_url'])
+      this.singleRepo.push(new Repository(results['id'],results['full_name'],results['description'],results['owner']['login'],results['forks_count'],results['git_url']));
     }
     
   }
