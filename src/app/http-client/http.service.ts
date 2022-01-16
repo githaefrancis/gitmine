@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { User } from '../user';
-import { Repository } from '../repository';
+import { User } from '../user-class/user';
+import { Repository } from '../repository-class/repository';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -106,7 +106,7 @@ export class HttpService {
       this.users.splice(0);
       var results=response;
       console.log(`${results} are in`);
-      this.users.push(new User(results['login'],results['login'],[],results['avatar_url']))
+      this.users.push(new User(results['login'],results['login'],[results],results['avatar_url']))
     }
     
   }

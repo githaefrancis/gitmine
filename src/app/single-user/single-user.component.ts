@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../user';
-import { Repository } from '../repository';
+import { User } from '../user-class/user';
+import { Repository } from '../repository-class/repository';
 import { HttpService } from '../http-client/http.service';
 import { ActivatedRoute } from '@angular/router';
 @Component({
@@ -26,6 +26,8 @@ export class SingleUserComponent implements OnInit {
     this.repoService.searchGithub('users',`/${username}`);
     this.users=this.repoService.users;
     console.log(this.users);
+    
+    
   }
 
 }

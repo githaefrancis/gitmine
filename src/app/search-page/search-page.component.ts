@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,ParamMap, Router } from '@angular/router';
 import { HttpService } from '../http-client/http.service';
-import { User } from '../user';
-import { Repository } from '../repository';
+import { User } from '../user-class/user';
+import { Repository } from '../repository-class/repository';
 @Component({
   selector: 'app-search-page',
   templateUrl: './search-page.component.html',
