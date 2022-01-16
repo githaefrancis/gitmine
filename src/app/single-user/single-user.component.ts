@@ -3,6 +3,7 @@ import { User } from '../user-class/user';
 import { Repository } from '../repository-class/repository';
 import { HttpService } from '../http-client/http.service';
 import { ActivatedRoute } from '@angular/router';
+import { UserMetadata } from '../user-metadata/user-metadata';
 @Component({
   selector: 'app-single-user',
   templateUrl: './single-user.component.html',

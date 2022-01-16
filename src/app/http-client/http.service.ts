@@ -21,10 +21,10 @@ export class HttpService {
       .set('Authorization', `Token ${this.accessToken}`)
   };
   constructor(private http: HttpClient) {
-
+    this.userMetadata=new UserMetadata("",0,0,0,new Date(16,0,2022));
     this.users = [];
     this.repos=[];
-    this.userMetadata=new UserMetadata("",0,0,0,new Date(16,0,2022))
+    
   }
 
 
@@ -110,7 +110,8 @@ export class HttpService {
       var results=response;
 
       console.log(`${results} are in`);
-      this.users.push(new User(results['login'],results['login'],[results],results['avatar_url'],new UserMetadata(results['bio'],results['public_repos'],results['followers'],results['following'],new Date(results['created_at']))))
+      this.userMetadata=new UserMetadata(results['bio'],results['public_repos'],results['followers'],results['following'],new Date(results['created_at']));
+      this.users.push(new User(results['login'],results['login'],[results],results['avatar_url'],this.userMetadata));
     }
     
   }
