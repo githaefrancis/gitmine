@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-single-repo',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SingleRepoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:ActivatedRoute) { }
 
   ngOnInit(): void {
   }

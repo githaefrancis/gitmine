@@ -88,7 +88,7 @@ export class HttpService {
       this.repos.splice(0);
       var results = response.items;
       for (let result of results) {
-        this.repos.push(new Repository(result['id'], result['full_name'], result['description'], result['owner']['login'], result['forks'], result['url']))
+        this.repos.push(new Repository(result['id'], result['full_name'], result['description'], result['owner']['login'], result['forks'], result['html_url']))
       }
     }
     else if (type=="users" && userPathRegex.test(query)) {
@@ -101,7 +101,7 @@ export class HttpService {
 
       this.users.push(new User(owner['login'],owner['login'],owner,owner['avatar_url'],this.userMetadata))
       for (let result of results) {
-        this.repos.push(new Repository(result['id'], result['full_name'], result['description'], result['owner'], result['forks'], result['url']))
+        this.repos.push(new Repository(result['id'], result['full_name'], result['description'], result['owner'], result['forks'], result['html_url']))
       }
     }
 
