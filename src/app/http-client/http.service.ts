@@ -50,7 +50,7 @@ export class HttpService {
           response => {
             if (response) {
               // this.user.items=response.items
-              this.prepareResponse(path, response);
+              this.prepareResponse(path, response,query);
               console.log(response);
               console.log(this.users)
               resolve(true);
@@ -69,7 +69,8 @@ export class HttpService {
     return promise;
   }
 
-  prepareResponse(type: string, response: any) {
+  prepareResponse(type: string, response: any,query:any) {
+    const userPathRegex=new RegExp('repos','g')
     if (type == "search/users") {
       this.users.splice(0);
       var results = response.items;
@@ -87,7 +88,8 @@ export class HttpService {
         this.repos.push(new Repository(result['id'], result['full_name'], result['description'], result['owner']['login'], result['forks'], result['url']))
       }
     }
-    else if (type=="users") {
+    else if (type=="users" && userPathRegex.test(query)) {
+    
       this.repos.splice(0);
       this.users.splice(0);
       
@@ -98,6 +100,13 @@ export class HttpService {
       for (let result of results) {
         this.repos.push(new Repository(result['id'], result['full_name'], result['description'], result['owner'], result['forks'], result['url']))
       }
+    }
+
+    else if(type=='users'){
+      this.users.splice(0);
+      var results=response;
+      console.log(`${results} are in`);
+      this.users.push(new User(results['login'],results['login'],[],results['avatar_url']))
     }
     
   }

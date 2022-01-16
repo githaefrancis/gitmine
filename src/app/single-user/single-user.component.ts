@@ -22,8 +22,9 @@ export class SingleUserComponent implements OnInit {
     let itemToFetch=this.route.snapshot.paramMap.get('item');
     this.repoService.searchGithub('users',`/${username}/${itemToFetch}`);
     this.userRepos=this.repoService.repos;
-    this.users=this.repoService.users;
 
+    this.repoService.searchGithub('users',`/${username}`);
+    this.users=this.repoService.users;
     console.log(this.users);
   }
 
