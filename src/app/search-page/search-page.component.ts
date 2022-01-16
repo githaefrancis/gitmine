@@ -21,6 +21,10 @@ export class SearchPageComponent implements OnInit {
   showUser(login:string){
     this.router.navigate(['user',login,'repos'])
   }
+
+  goToRepo(path:string){
+    this.router.navigate(['repos',path]);
+  }
   loadResults(){
     this.users.splice(0);
     this.repositories.splice(0);

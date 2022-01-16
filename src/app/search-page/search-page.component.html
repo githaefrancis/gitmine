@@ -24,18 +24,19 @@
       <div class="card p-4 mb-3">
         <div class="my-2">
 
-          <span class="mb-5"><strong>{{repository.name}}</strong></span>
-          <p *ngIf="repository.description">{{repository.description}}</p>
-          <p *ngIf="!repository.description">No desciption provided.</p>
-          <a href="{{repository.link}}">Github Link</a>
+          <span class="repo-icon"><img src="../../assets/repoicon.png" height="48" alt=""></span><span class="mb-5"><strong>{{repository.name}}</strong></span>
+          <p class="mt-5 fw-bold">Description</p>
+          <p *ngIf="repository.description" class="mt-1">{{repository.description}}</p>
+          <p *ngIf="!repository.description" class="mt-1">No desciption provided.</p>
+          <a href="{{repository.link}}" class="badge bg-dark text-decoration-none">Github Link</a>
         </div>
-        <div class="mt-5">
+        <!-- <div class="mt-5">
           Languages
         </div>
         <div class="mt-5">
           Starred
-        </div>
-
+        </div> -->
+        <a href="" (click)="goToRepo(repository.name)" class="btn btn-dark mt-5">More Details</a>
       </div>
     </div>
     <div *ngIf="repositories.length<1">
