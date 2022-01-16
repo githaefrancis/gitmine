@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../user-class/user';
 import { Repository } from '../repository-class/repository';
 import { environment } from 'src/environments/environment';
+import { UserMetadata } from '../user-metadata/user-metadata';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ export class HttpService {
 
   
   users!: User[];
+  userMetadata!:UserMetadata;
   repos!: Repository[];
   apiUrl: string = environment.apiUrl
   accessToken:string=environment.accessToken;
@@ -22,6 +24,7 @@ export class HttpService {
 
     this.users = [];
     this.repos=[];
+    this.userMetadata=new UserMetadata("",0,0,0,new Date(16,0,2022))
   }
 
 
@@ -75,7 +78,7 @@ export class HttpService {
       this.users.splice(0);
       var results = response.items;
       for (let result of results) {
-        this.users.push(new User(result['login'], result['login'], result, result['avatar_url']))
+        this.users.push(new User(result['login'], result['login'], result, result['avatar_url'],this.userMetadata))
         console.log(result);
       }
       console.log(this.users);
@@ -96,7 +99,7 @@ export class HttpService {
       var results = response;
       var owner=response[0]['owner'];
 
-      this.users.push(new User(owner['login'],owner['login'],owner,owner['avatar_url']))
+      this.users.push(new User(owner['login'],owner['login'],owner,owner['avatar_url'],this.userMetadata))
       for (let result of results) {
         this.repos.push(new Repository(result['id'], result['full_name'], result['description'], result['owner'], result['forks'], result['url']))
       }
@@ -105,8 +108,9 @@ export class HttpService {
     else if(type=='users'){
       this.users.splice(0);
       var results=response;
+
       console.log(`${results} are in`);
-      this.users.push(new User(results['login'],results['login'],[results],results['avatar_url']))
+      this.users.push(new User(results['login'],results['login'],[results],results['avatar_url'],new UserMetadata(results['bio'],results['public_repos'],results['followers'],results['following'],new Date(results['created_at']))))
     }
     
   }
