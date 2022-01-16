@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PageNotFoundComponent } from './404-Not-Found/page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
 import { SearchPageComponent } from './search-page/search-page.component';
 import { SingleRepoComponent } from './single-repo/single-repo.component';
@@ -11,7 +12,8 @@ const routes: Routes = [
   {path:'search/:query',component:SearchPageComponent},
   {path:'user/:login/:item',component:SingleUserComponent},
   {path:'repos/:login/:repoName',component:SingleRepoComponent},
-  {path:'',redirectTo:'/home',pathMatch:'full'}
+  {path:'',redirectTo:'/home',pathMatch:'full'},
+  {path:'**',component:PageNotFoundComponent}
 ];
 
 @NgModule({

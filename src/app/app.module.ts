@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { SingleUserComponent } from './single-user/single-user.component';
 import { SingleRepoComponent } from './single-repo/single-repo.component';
 import { FooterComponent } from './footer/footer.component';
+import { PageNotFoundComponent } from './404-Not-Found/page-not-found/page-not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +23,7 @@ import { FooterComponent } from './footer/footer.component';
     SingleUserComponent,
     SingleRepoComponent,
     FooterComponent,
+    PageNotFoundComponent,
     
   ],
   imports: [
