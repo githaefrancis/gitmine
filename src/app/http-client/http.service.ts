@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../user';
 import { Repository } from '../repository';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,11 @@ export class HttpService {
   // user!:User;
   users!: User[];
   repos!: Repository[];
-  apiUrl: string = 'https://api.github.com';
+  apiUrl: string = environment.apiUrl
+  accessToken:string=environment.accessToken;
   header: any = {
     headers: new HttpHeaders()
-      .set('Authorization', `Token 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`)
+      .set('Authorization', `Token ${this.accessToken}`)
   };
   constructor(private http: HttpClient) {
 

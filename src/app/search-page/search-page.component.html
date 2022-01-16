@@ -38,7 +38,9 @@
 
       </div>
     </div>
-
+    <div *ngIf="repositories.length<1">
+      <p>No repository found.</p>
+    </div>
   </div>
   <!-- <div class="row mb-5">
 
