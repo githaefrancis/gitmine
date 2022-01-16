@@ -61,15 +61,12 @@ export class HttpService {
               resolve(true);
             }
 
-          },
-          error => {
-
-            console.log("not going anywhere");
-            reject(error)
-          }
-
-
-        )
+          })
+          .catch(error=>{
+            console.log(error);
+            
+          })
+        
     })
     return promise;
   }
