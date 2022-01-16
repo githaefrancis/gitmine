@@ -4,7 +4,7 @@
   <h1 class="text-center">Users</h1>
   <!-- <button (click)="showUsers()">LOAD</button> -->
   <div class="row">
-    <div *ngFor="let user of users" class="col-3">
+    <div *ngFor="let user of users" class="col-2">
      <a (click)="showUser(user.login)" title="Go to {{user.login}}"> <img src="{{ user.avatar }}" alt="" class="img-fluid" />
       <p class="text-center mt-2">{{ user.login }}</p></a>
     </div>
@@ -36,7 +36,7 @@
         <div class="mt-5">
           Starred
         </div> -->
-        <a href="" (click)="goToRepo(repository.name)" class="btn btn-dark mt-5">More Details</a>
+        <a (click)="goToRepo(repository.name)" class="btn btn-dark mt-5">More Details</a>
       </div>
     </div>
     <div *ngIf="repositories.length<1">
