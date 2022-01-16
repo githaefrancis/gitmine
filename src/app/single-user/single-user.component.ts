@@ -16,7 +16,10 @@ export class SingleUserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.repoService.searchGithub('users','/ruweydha/repos');
+
+    let username=this.route.snapshot.paramMap.get('login');
+    let itemToFetch=this.route.snapshot.paramMap.get('item');
+    this.repoService.searchGithub('users',`/${username}/${itemToFetch}`);
     this.userRepos=this.repoService.repos;
   }
 

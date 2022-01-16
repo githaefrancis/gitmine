@@ -11,6 +11,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { FormsModule } from '@angular/forms';
 import { SingleUserComponent } from './single-user/single-user.component';
 import { SingleRepoComponent } from './single-repo/single-repo.component';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +21,7 @@ import { SingleRepoComponent } from './single-repo/single-repo.component';
     SearchBarComponent,
     SingleUserComponent,
     SingleRepoComponent,
+    FooterComponent,
     
   ],
   imports: [
