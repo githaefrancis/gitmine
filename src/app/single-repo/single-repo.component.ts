@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { HttpService } from '../http-client/http.service';
+import { Repository } from '../repository-class/repository';
 
 @Component({
   selector: 'app-single-repo',
@@ -7,10 +9,18 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./single-repo.component.css']
 })
 export class SingleRepoComponent implements OnInit {
-
-  constructor(private router:ActivatedRoute) { }
-
+  singleRepo!:Repository;
+  constructor(private repoService:HttpService,private route:ActivatedRoute) { 
+    
+  }
+  
   ngOnInit(): void {
+    
+    let username=this.route.snapshot.paramMap.get('login');
+    let repoName=this.route.snapshot.paramMap.get('repoName');
+
+    this.repoService.searchGithub('repos',`/${username}/${repoName}`);
+    this.singleRepo=this.repoService.singleRepo;
   }
 
 }

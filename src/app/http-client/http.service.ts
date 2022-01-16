@@ -14,6 +14,7 @@ export class HttpService {
   users!: User[];
   userMetadata!:UserMetadata;
   repos!: Repository[];
+  singleRepo!:Repository;
   apiUrl: string = environment.apiUrl
   accessToken:string=environment.accessToken;
   header: any = {
@@ -112,6 +113,13 @@ export class HttpService {
       console.log(`${results} are in`);
       this.userMetadata=new UserMetadata(results['bio'],results['public_repos'],results['followers'],results['following'],new Date(results['created_at']));
       this.users.push(new User(results['login'],results['login'],[results],results['avatar_url'],this.userMetadata));
+    }
+
+    else if(type=='repos'){
+      var results=response;
+      var owner=results['owner'];
+      console.log(results);
+      this.singleRepo=new Repository(results['id'],results['full_name'],results['description'],results['owner']['login'],results['forks_count'],results['git_url'])
     }
     
   }
