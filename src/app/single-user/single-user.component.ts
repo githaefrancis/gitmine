@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../user-class/user';
 import { Repository } from '../repository-class/repository';
 import { HttpService } from '../http-client/http.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserMetadata } from '../user-metadata/user-metadata';
 @Component({
   selector: 'app-single-user',
@@ -12,9 +12,17 @@ import { UserMetadata } from '../user-metadata/user-metadata';
 export class SingleUserComponent implements OnInit {
   users!:User[];
   userRepos!:Repository[];
-  constructor(private repoService:HttpService,private route:ActivatedRoute) { 
+  constructor(private repoService:HttpService,private route:ActivatedRoute,private router:Router) { 
     this.userRepos=[]
     this.users=[];
+  }
+  goToRepo(path:string){
+
+    var subPaths=path.split('/')
+    console.log(path);
+    let username=subPaths[0];
+    let repoName=subPaths[1]
+    this.router.navigate(['repos',username,repoName]);
   }
 
   ngOnInit(): void {

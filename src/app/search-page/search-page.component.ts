@@ -12,6 +12,8 @@ export class SearchPageComponent implements OnInit {
   
   users:User[]=[];
   repositories:Repository[]=[]
+  repoCount:Number=0;
+  userCount:Number=0;
   constructor(private route:ActivatedRoute,private http:HttpService,private router:Router) { }
 
 
@@ -40,8 +42,11 @@ export class SearchPageComponent implements OnInit {
     this.users=this.http.users;
     this.http.searchGithub('search/repositories',`?q=${query}`);
     this.repositories=this.http.repos;
+    this.userCount=this.users.length;
+    this.repoCount=this.repositories.length;
     console.log(this.users);
     console.log(this.repositories);
+
   }
   ngOnInit(): void {
     this.loadResults();
