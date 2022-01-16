@@ -27,8 +27,10 @@ export class SearchPageComponent implements OnInit {
     var subPaths=path.split('/')
     console.log(path);
     let username=subPaths[0];
-    let repoName=subPaths[1]
+    let repoName=subPaths[1];
     this.router.navigate(['repos',username,repoName]);
+    
+    
   }
   loadResults(){
     this.users.splice(0);

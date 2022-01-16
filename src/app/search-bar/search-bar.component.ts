@@ -20,8 +20,13 @@ export class SearchBarComponent implements OnInit {
 
   searchKeyword(){
     console.log("submitted");
+    this.router.navigateByUrl('/',{skipLocationChange:true}).then(()=>
     this.router.navigate(['search',this.keyword])
-    this.searchKey.emit(this.keyword);
+    );
+    
+  
+
+    // this.searchKey.emit(this.keyword);
   }
 
 
