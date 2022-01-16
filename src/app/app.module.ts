@@ -13,6 +13,8 @@ import { SingleUserComponent } from './single-user/single-user.component';
 import { SingleRepoComponent } from './single-repo/single-repo.component';
 import { FooterComponent } from './footer/footer.component';
 import { PageNotFoundComponent } from './404-Not-Found/page-not-found/page-not-found.component';
+import { TimeElapsedPipe } from './time-elapsed-pipe/time-elapsed.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +26,7 @@ import { PageNotFoundComponent } from './404-Not-Found/page-not-found/page-not-f
     SingleRepoComponent,
     FooterComponent,
     PageNotFoundComponent,
+    TimeElapsedPipe,
     
   ],
   imports: [

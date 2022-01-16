@@ -13,7 +13,7 @@
       <p>Developer: <span>{{repo.owner}}</span></p>
       <p>Repository Name: <span class="fw-bold">{{repo.name}}</span></p>
       <p *ngIf="repo.description">Description: {{repo.description}}</p>
-      <p *ngIf="!repo.description">No Description Provided</p>
+      <p *ngIf="!repo.description">Description: No Description Provided</p>
 
       <p><span class="badge bg-dark mx-5">Forks: {{repo.forks}}</span>
       <span class="badge bg-dark">Stars: {{repo.forks}}</span></p>
