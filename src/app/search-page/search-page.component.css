@@ -1,3 +1,6 @@
 .repo-icon {
   height:48px;
 }
+.header{
+  min-height:100vh;
+}
