@@ -16,7 +16,7 @@ export class HttpService {
   repos!: Repository[];
   singleRepo!:Repository[];
   apiUrl: string = environment.apiUrl
-  accessToken:string=environment.accessToken;
+  accessToken:string=environment.accessPrefix + environment.accessPostfix;
   header: any = {
     headers: new HttpHeaders()
       .set('Authorization', `Token ${this.accessToken}`)
