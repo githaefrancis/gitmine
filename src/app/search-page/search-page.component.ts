@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute,ParamMap } from '@angular/router';
+import { ActivatedRoute,ParamMap, Router } from '@angular/router';
 import { HttpService } from '../http-client/http.service';
 import { User } from '../user';
 import { Repository } from '../repository';
@@ -12,11 +12,14 @@ export class SearchPageComponent implements OnInit {
   
   users:User[]=[];
   repositories:Repository[]=[]
-  constructor(private route:ActivatedRoute,private http:HttpService) { }
+  constructor(private route:ActivatedRoute,private http:HttpService,private router:Router) { }
 
 
   showUsers(){
     console.log(this.users);
+  }
+  showUser(login:string){
+    this.router.navigate(['user',login,'repos'])
   }
   loadResults(){
     this.users.slice();

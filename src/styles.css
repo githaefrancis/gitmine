@@ -8,3 +8,7 @@ nav{
 body{
   background-color: #FCFAFA;
 }
+
+a{
+  cursor: pointer;
+}

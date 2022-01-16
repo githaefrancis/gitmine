@@ -5,8 +5,8 @@
   <!-- <button (click)="showUsers()">LOAD</button> -->
   <div class="row">
     <div *ngFor="let user of users" class="col-3">
-      <img src="{{ user.avatar }}" alt="" class="img-fluid" />
-      <p class="text-center mt-2">{{ user.login }}</p>
+     <a (click)="showUser(user.login)" title="Go to {{user.login}}"> <img src="{{ user.avatar }}" alt="" class="img-fluid" />
+      <p class="text-center mt-2">{{ user.login }}</p></a>
     </div>
 
     <div *ngIf="users.length<1">
@@ -42,14 +42,4 @@
       <p>No repository found.</p>
     </div>
   </div>
-  <!-- <div class="row mb-5">
-
-    <div *ngFor="let repository of repositories" class="col-3">
-      <img src="" alt="">
-      <p>{{repository.name}}</p>
-    </div>
-    <div *ngIf="repositories.length<1">
-      <p>No repository found.</p>
-    </div>
-  </div> -->
 </div>
