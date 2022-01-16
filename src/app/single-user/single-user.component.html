@@ -1,13 +1,14 @@
 <div class="container">
 
-  <div class="row">
+  <div class="row" *ngFor="let user of users">
 
-    <div class="col-lg-4">
-      <img src="https://avatars.githubusercontent.com/u/28842697?v=4" alt="">
+    <div class="col-lg-4 p-5">
+      <img src="{{user.avatar}}" alt="">
     </div>
-    <div class="col-lg-6">
-      Description
-      Languages
+    <div class="col-lg-6 p-5 mx-5">
+     <p> Name: {{user.login}}</p>
+      <p> Description</p>
+      <p>Languages</p>
     </div>
   </div>
 

@@ -9,10 +9,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./single-user.component.css']
 })
 export class SingleUserComponent implements OnInit {
-  user!:User;
+  users!:User[];
   userRepos!:Repository[];
   constructor(private repoService:HttpService,private route:ActivatedRoute) { 
     this.userRepos=[]
+    this.users=[];
   }
 
   ngOnInit(): void {
@@ -21,6 +22,9 @@ export class SingleUserComponent implements OnInit {
     let itemToFetch=this.route.snapshot.paramMap.get('item');
     this.repoService.searchGithub('users',`/${username}/${itemToFetch}`);
     this.userRepos=this.repoService.repos;
+    this.users=this.repoService.users;
+
+    console.log(this.users);
   }
 
 }

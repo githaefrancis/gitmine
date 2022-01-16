@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class HttpService {
 
-  // user!:User;
+  
   users!: User[];
   repos!: Repository[];
   apiUrl: string = environment.apiUrl
@@ -89,7 +89,12 @@ export class HttpService {
     }
     else if (type=="users") {
       this.repos.splice(0);
+      this.users.splice(0);
+      
       var results = response;
+      var owner=response[0]['owner'];
+
+      this.users.push(new User(owner['login'],owner['login'],owner,owner['avatar_url']))
       for (let result of results) {
         this.repos.push(new Repository(result['id'], result['full_name'], result['description'], result['owner'], result['forks'], result['url']))
       }
