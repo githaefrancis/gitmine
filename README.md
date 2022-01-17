@@ -1,27 +1,74 @@
 # Gitmine
+Search Github.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4.
+## Description
+This is a web application that allows users to search Github users and repositories.
+The application consumes the github search, users and repos API endpoints to pull information.
 
-## Development server
+## Author
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Francis Githae.
 
-## Code scaffolding
+## BDD
+- User keys in a search word on the search bar and clicks the search button.
+- The application navigates to a search results page.
+- The search results page displays users and repositories found.
+- The app allows the user to click on a user card to view the details and repositories of the user.
+- The app allows the user to click on a repository to view more details of the repositories, either on the search page or the single user view.
+- The app show the time passed since the user account or repository was created.
+- The user and repository card zooms in when a user hovers over them.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Tools and Technologies used.
+- Angular 13
+- Typescript 3
+- Bootstrap 5
+- Moment js 2
+- Node 14.17.6
 
-## Build
+## Installation  and Setup
+To run this project locally:
+1. Clone the repository.
+```bash
+git clone 
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+2. Navigate to the project folder
 
-## Running unit tests
+```
+cd gitmine
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. Install dependencies
 
-## Running end-to-end tests
+```
+npm install
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+4. Add environment variables to environment.ts files in the environment folder.
 
-## Further help
+- ApiUrl: 'https://api.github.com'
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- AccessToken:'\<GitHub personal access token\>'
+
+5. Run the application
+
+```bash
+ng serve --open
+```
+
+ 
+> The application should load on the browser at: localhost:4200
+
+## Live Link
+
+[Git Mine](https://gitmine.netlify.app)
+
+## Contact 
+
+Email: mureithigithae@gmail.com
+
+## License
+
+This project is under the MIT License [click here for more information](LICENSE)
+
+&copy; 2021 Francis Githae
