@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
     if(searchField){
       searchField.focus()
     }
+  
     
   }
   constructor(private gitUserService:HttpService) { 
