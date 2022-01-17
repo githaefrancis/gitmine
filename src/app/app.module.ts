@@ -14,6 +14,7 @@ import { SingleRepoComponent } from './single-repo/single-repo.component';
 import { FooterComponent } from './footer/footer.component';
 import { PageNotFoundComponent } from './404-Not-Found/page-not-found/page-not-found.component';
 import { TimeElapsedPipe } from './time-elapsed-pipe/time-elapsed.pipe';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { TimeElapsedPipe } from './time-elapsed-pipe/time-elapsed.pipe';
     FooterComponent,
     PageNotFoundComponent,
     TimeElapsedPipe,
+    AboutComponent,
     
   ],
   imports: [
