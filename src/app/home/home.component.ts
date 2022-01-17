@@ -7,8 +7,11 @@ import { HttpService } from '../http-client/http.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  
+  constructor(private gitUserService:HttpService) { 
 
-  constructor(private gitUserService:HttpService) { }
+
+  }
 
   ngOnInit(): void {
 

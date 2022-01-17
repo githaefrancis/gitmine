@@ -1,11 +1,21 @@
-<div class="grid-container">
-  <div class="grid-item">1</div>
-  <div class="grid-item">2</div>
-  <div class="grid-item">3</div>  
-  <div class="grid-item"></div>
-  <div class="grid-item">5</div>
-  <div class="grid-item"></div>  
-  <div class="grid-item">7</div>
-  <div class="grid-item">8</div>
-  <div class="grid-item">9</div>  
+<div class="container mb-5">
+  <h1 class="text-center mb-5">GitHub Profile</h1>
+
+  <div class="row" *ngFor="let user of users">
+
+    <div class="col-lg-4 p-3 p-lg-5">
+      <img src="{{user.avatar}}" class="img-fluid" alt="">
+    </div>
+    <div class="col-lg-6 p-5 p-lg-5  mx-lg-5 card">
+    <a (click)="openUser()" title="Go to {{user.login}}"><p> Name: {{user.login}} <span class="badge bg-success">{{userRepos.length}} Repos</span></p></a>
+      
+     <p> Bio:
+       <span *ngIf="user.metadata.bio">{{user.metadata.bio}}</span>
+       <span *ngIf="!user.metadata.bio">No Bio data provided</span>
+     </p>
+      <p>Following: {{user.metadata.following}}</p>
+      <p>Followers: {{user.metadata.followers}}</p>
+      <p>Created: {{user.metadata.createdAt | timeElapsed}}</p>
+    </div>
+  </div>
 </div>
