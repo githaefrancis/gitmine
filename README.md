@@ -61,7 +61,7 @@ ng serve --open
 
 ## Live Link
 
-[Git Mine](https://gitmine.netlify.app)
+[Git Mine](githaefrancis.github.io/gitmine/)
 
 ## Contact 
 

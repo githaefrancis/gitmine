@@ -10,13 +10,12 @@ export class ZoomInDirective {
   @HostListener('mouseover') onMouseOver() {
 
     this.elem.nativeElement.classList.add('zoom');
-    console.log("entered");
+
   }
   @HostListener('mouseleave') onMouseLeave() {
 
     this.elem.nativeElement.classList.remove('zoom');
-    console.log("left");
-    console.log(this.elem.nativeElement)
+
   }
 
 
