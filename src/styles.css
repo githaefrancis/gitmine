@@ -21,3 +21,15 @@ a{
   height:15vh;
   margin-bottom: 0px;
 }
+
+.zoom{
+  z-index: 3;
+  transition: all .3s ease-in-out;
+  transform: scale(1.2);
+  
+}
+
+.zoom ~ div{
+  transform: scale(0.8);
+  transition: all .3s ease-in-out;
+}

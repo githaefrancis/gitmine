@@ -16,7 +16,7 @@ export class HttpService {
   repos!: Repository[];
   singleRepo!:Repository[];
   apiUrl: string = environment.apiUrl
-  accessToken:string=environment.accessPrefix + environment.accessPostfix;
+  accessToken:string=environment.accessToken;
   header: any = {
     headers: new HttpHeaders()
       .set('Authorization', `Token ${this.accessToken}`)
@@ -48,7 +48,7 @@ export class HttpService {
     
 
     let promise = new Promise((resolve, reject) => {
-      this.http.get<ApiRepositoryResponse>(`${this.apiUrl}/${path}${query}`)
+      this.http.get<ApiRepositoryResponse>(`${this.apiUrl}/${path}${query}`,this.header)
 
         .toPromise()
         .then(
