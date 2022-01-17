@@ -16,6 +16,7 @@ import { PageNotFoundComponent } from './404-Not-Found/page-not-found/page-not-f
 import { TimeElapsedPipe } from './time-elapsed-pipe/time-elapsed.pipe';
 import { AboutComponent } from './about/about.component';
 import { NgHttpLoaderModule } from 'ng-http-loader';
+import { ZoomInDirective } from './zoom-in-directive/zoom-in.directive';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
     PageNotFoundComponent,
     TimeElapsedPipe,
     AboutComponent,
+    ZoomInDirective,
     
     
   ],
