@@ -1,40 +1,54 @@
 <div class="container">
-
   <div class="row" *ngFor="let user of users">
-    <p class="px-lg-3 mx-lg-5 badge bg-dark fs-4">{{user.name}} Profile.</p>
+    <p class="px-lg-3 mx-lg-5 badge bg-dark fs-4">{{ user.name }} Profile.</p>
     <div class="col-lg-4 p-lg-5">
-      <img src="{{user.avatar}}" class="img-fluid" alt="">
+      <img src="{{ user.avatar }}" class="img-fluid" alt="" />
     </div>
     <div class="col-lg-6 p-lg-5 mx-lg-5">
-     <p> Name: {{user.login}}</p>
-      
-     <p> Bio:
-       <span *ngIf="user.metadata.bio">{{user.metadata.bio}}</span>
-       <span *ngIf="!user.metadata.bio">No Bio data provided</span>
-     </p>
-      <p>Following: {{user.metadata.following}}</p>
-      <p>Followers: {{user.metadata.followers}}</p>
-      <p>Created on: {{user.metadata.createdAt | timeElapsed}}</p>
+      <p>Name: {{ user.login }}</p>
+
+      <p>
+        Bio:
+        <span *ngIf="user.metadata.bio">{{ user.metadata.bio }}</span>
+        <span *ngIf="!user.metadata.bio">No Bio data provided</span>
+      </p>
+      <p>Following: {{ user.metadata.following }}</p>
+      <p>Followers: {{ user.metadata.followers }}</p>
+      <p>Created on: {{ user.metadata.createdAt | timeElapsed }}</p>
     </div>
   </div>
 
-  <div class="row mt-5" >
+  <div class="row mt-5">
     <h1 class="text-center mb-4">Public Repositories</h1>
     <div class="col-lg-4" *ngFor="let repository of userRepos" appZoomIn>
       <div class="card p-4 mb-3 repo-card">
         <div class="my-2">
-
-          <span class="repo-icon"><img src="assets/repoicon.png" height="48" alt=""></span><span class="mb-5"><strong>{{repository.name}}</strong></span>
+          <span class="repo-icon"
+            ><img src="assets/repoicon.png" height="48" alt="" /></span
+          ><span class="mb-5"
+            ><strong>{{ repository.name }}</strong></span
+          >
           <p class="mt-5 fw-bold">Description</p>
-          <p *ngIf="repository.description" class="mt-1 repo-description">{{repository.description}}</p>
-          <p *ngIf="!repository.description" class="mt-1 repo-description rounded-2 pt-2">No description provided.</p>
-          <a href="{{repository.link}}" class="badge bg-dark text-decoration-none">Github Link</a>
+          <p *ngIf="repository.description" class="mt-1 repo-description">
+            {{ repository.description }}
+          </p>
+          <p
+            *ngIf="!repository.description"
+            class="mt-1 repo-description rounded-2 pt-2"
+          >
+            No description provided.
+          </p>
+          <a
+            href="{{ repository.link }}"
+            class="badge bg-dark text-decoration-none"
+            >Github Link</a
+          >
         </div>
-      
-        <a (click)="goToRepo(repository.name)" class="btn btn-dark mt-5">More Details</a>
-      </div>
-      
-    </div>
 
+        <a (click)="goToRepo(repository.name)" class="btn btn-dark mt-5"
+          >More Details</a
+        >
+      </div>
+    </div>
   </div>
 </div>

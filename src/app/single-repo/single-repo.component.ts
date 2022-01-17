@@ -9,18 +9,18 @@ import { Repository } from '../repository-class/repository';
   styleUrls: ['./single-repo.component.css']
 })
 export class SingleRepoComponent implements OnInit {
-  singleRepo:Repository[];
-  constructor(private repoService:HttpService,private route:ActivatedRoute) { 
-     this.singleRepo=[]
+  singleRepo: Repository[];
+  constructor(private repoService: HttpService, private route: ActivatedRoute) {
+    this.singleRepo = []
   }
-  
-  ngOnInit(): void {
-    
-    let username=this.route.snapshot.paramMap.get('login');
-    let repoName=this.route.snapshot.paramMap.get('repoName');
 
-    this.repoService.searchGithub('repos',`/${username}/${repoName}`);
-    this.singleRepo=this.repoService.singleRepo;
+  ngOnInit(): void {
+
+    let username = this.route.snapshot.paramMap.get('login');
+    let repoName = this.route.snapshot.paramMap.get('repoName');
+
+    this.repoService.searchGithub('repos', `/${username}/${repoName}`);
+    this.singleRepo = this.repoService.singleRepo;
   }
 
 }

@@ -1,15 +1,14 @@
 <div class="container header">
-  <!-- <app-search-bar (searchKey)="loadResults()"></app-search-bar> -->
-
   <h1 class="text-center mb-5 mt-3 mt-lg-0">Users</h1>
-  <!-- <button (click)="showUsers()">LOAD</button> -->
-  <div class="row ">
+  <div class="row">
     <div *ngFor="let user of users" class="col-lg-2" appZoomIn>
-     <a (click)="showUser(user.login)" title="Go to {{user.login}}"> <img src="{{ user.avatar }}" alt="" class="img-fluid avatar" />
-      <p class="text-center mt-2">{{ user.login }}</p></a>
+      <a (click)="showUser(user.login)" title="Go to {{ user.login }}">
+        <img src="{{ user.avatar }}" alt="" class="img-fluid avatar" />
+        <p class="text-center mt-2">{{ user.login }}</p></a
+      >
     </div>
 
-    <div *ngIf="users.length<1">
+    <div *ngIf="users.length < 1">
       <p>No user found.</p>
     </div>
   </div>
@@ -17,24 +16,36 @@
 
   <h1 class="text-center">Repositories</h1>
 
-  <div class="row my-5" >
-
+  <div class="row my-5">
     <div class="col-lg-4" *ngFor="let repository of repositories" appZoomIn>
-
-      <div class="card p-4 mb-3 repo-card" >
+      <div class="card p-4 mb-3 repo-card">
         <div class="my-2">
-
-          <span class="repo-icon"><img src="assets/repoicon.png" height="48" alt=""></span><span class="mb-5"><strong>{{repository.name}}</strong></span>
+          <span class="repo-icon"
+            ><img src="assets/repoicon.png" height="48" alt="" /></span
+          ><span class="mb-5"
+            ><strong>{{ repository.name }}</strong></span
+          >
           <p class="mt-5 fw-bold">Description</p>
-          <p *ngIf="repository.description" class="mt-1 repo-description">{{repository.description}}</p>
-          <p *ngIf="!repository.description" class="mt-1 repo-description">No description provided.</p>
-          <a href="{{repository.link}}" class="badge bg-dark text-decoration-none" target="_blank">Github Link</a>
+          <p *ngIf="repository.description" class="mt-1 repo-description">
+            {{ repository.description }}
+          </p>
+          <p *ngIf="!repository.description" class="mt-1 repo-description">
+            No description provided.
+          </p>
+          <a
+            href="{{ repository.link }}"
+            class="badge bg-dark text-decoration-none"
+            target="_blank"
+            >Github Link</a
+          >
         </div>
-      
-        <a (click)="goToRepo(repository.name)" class="btn btn-dark mt-5">More Details</a>
+
+        <a (click)="goToRepo(repository.name)" class="btn btn-dark mt-5"
+          >More Details</a
+        >
       </div>
     </div>
-    <div *ngIf="repositories.length<1">
+    <div *ngIf="repositories.length < 1">
       <p>No repository found.</p>
     </div>
   </div>

@@ -7,15 +7,15 @@ import { HttpService } from '../http-client/http.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  focusSearch(){
-    var searchField=document.getElementById('search');
-    if(searchField){
+  focusSearch() {
+    var searchField = document.getElementById('search');
+    if (searchField) {
       searchField.focus()
     }
-  
-    
+
+
   }
-  constructor(private gitUserService:HttpService) { 
+  constructor(private gitUserService: HttpService) {
 
 
   }

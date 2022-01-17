@@ -20,7 +20,6 @@ export class SearchBarComponent implements OnInit {
   public searchKeyword(){
     
     if (this.searchForm.valid){
-      console.log("submitted");
     this.router.navigateByUrl('/',{skipLocationChange:true}).then(()=>
     this.router.navigate(['search',this.searchForm.get('searchWord')?.value])
     
@@ -28,7 +27,7 @@ export class SearchBarComponent implements OnInit {
     this.newKeyword=new Keyword("");
     
     }
-    console.log(this.searchForm.get('searchWord')?.value);
+    
   }
 
 

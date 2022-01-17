@@ -1,26 +1,32 @@
 <div class="container-fluid">
-<div class="container header">
+  <div class="container header">
+    <div class="row" *ngFor="let repo of singleRepo">
+      <p class="px-lg-3 mx-lg-5 badge bg-dark fs-4">{{ repo.name }} Details.</p>
+      <div class="col-lg-4 p-lg-5">
+        <img src="assets/repoicon.png" class="img-fluid" alt="" />
+      </div>
 
-  <div class="row" *ngFor="let repo of singleRepo">
-     <p class="px-lg-3 mx-lg-5 badge bg-dark fs-4">{{repo.name}} Details.</p>
-    <div class="col-lg-4 p-lg-5">
-      <img src="assets/repoicon.png" class="img-fluid" alt="">
-      
-      
-    </div>
-    
-    <div class="col-lg-6 p-lg-5 m-lg-5 card border-0">
-      <p>Developer: <span>{{repo.owner}}</span></p>
-      <p>Repository Name: <span class="fw-bold">{{repo.name}}</span></p>
-      <p *ngIf="repo.description">Description: {{repo.description}}</p>
-      <p *ngIf="!repo.description">Description: No Description Provided</p>
+      <div class="col-lg-6 p-lg-5 m-lg-5 card border-0">
+        <p>
+          Developer: <span>{{ repo.owner }}</span>
+        </p>
+        <p>
+          Repository Name: <span class="fw-bold">{{ repo.name }}</span>
+        </p>
+        <p *ngIf="repo.description">Description: {{ repo.description }}</p>
+        <p *ngIf="!repo.description">Description: No Description Provided</p>
 
-      <p class="d-flex flex-wrap justify-content-around"><span class="badge bg-danger mx-5">Forks: {{repo.forks}}</span>
-      <span class="badge bg-dark mx-5">Stars: {{repo.forks}}</span>
-      <a href="{{repo.link}}" class="badge bg-success text-decoration-none" target="_blank">Github Link</a>
-    </p>
-    
+        <p class="d-flex flex-wrap justify-content-around">
+          <span class="badge bg-danger mx-5">Forks: {{ repo.forks }}</span>
+          <span class="badge bg-dark mx-5">Stars: {{ repo.forks }}</span>
+          <a
+            href="{{ repo.link }}"
+            class="badge bg-success text-decoration-none"
+            target="_blank"
+            >Github Link</a
+          >
+        </p>
+      </div>
     </div>
   </div>
-</div>
 </div>
