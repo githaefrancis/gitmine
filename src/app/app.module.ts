@@ -8,7 +8,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import {HttpClientModule} from '@angular/common/http';
 import { SearchPageComponent } from './search-page/search-page.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { SingleUserComponent } from './single-user/single-user.component';
 import { SingleRepoComponent } from './single-repo/single-repo.component';
 import { FooterComponent } from './footer/footer.component';
@@ -41,6 +41,7 @@ import { ZoomInDirective } from './zoom-in-directive/zoom-in.directive';
     HttpClientModule,
     FormsModule,
     NgHttpLoaderModule.forRoot(),
+    ReactiveFormsModule
     
   ],
   providers: [],

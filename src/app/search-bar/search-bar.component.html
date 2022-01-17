@@ -1,6 +1,6 @@
-<form action="" class="d-flex mt-4 my-lg-5" (ngSubmit)="searchKeyword()" #searchForm="ngForm">
+<form [formGroup]="searchForm" class="d-flex mt-4 my-lg-5" (ngSubmit)="searchKeyword()">
   <div class="form-group">
-    <input type="text" class="form-control search-input" [(ngModel)]="keyword" name="search" id="search" placeholder="user or repository">
+    <input formControlName="searchWord" type="text" class="form-control search-input" [(ngModel)]="newKeyword.keyword" name="search" id="search" placeholder="user or repository" required>
   </div>
   <button class="btn btn-success mx-3 mx-lg-5" type="submit">Search</button>
 </form>
