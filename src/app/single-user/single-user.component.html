@@ -21,13 +21,13 @@
   <div class="row mt-5" >
     <h1 class="text-center mb-4">Public Repositories</h1>
     <div class="col-lg-4" *ngFor="let repository of userRepos" appZoomIn>
-      <div class="card p-4 mb-3">
+      <div class="card p-4 mb-3 repo-card">
         <div class="my-2">
 
           <span class="repo-icon"><img src="assets/repoicon.png" height="48" alt=""></span><span class="mb-5"><strong>{{repository.name}}</strong></span>
           <p class="mt-5 fw-bold">Description</p>
-          <p *ngIf="repository.description" class="mt-1">{{repository.description}}</p>
-          <p *ngIf="!repository.description" class="mt-1">No description provided.</p>
+          <p *ngIf="repository.description" class="mt-1 repo-description">{{repository.description}}</p>
+          <p *ngIf="!repository.description" class="mt-1 repo-description rounded-2 pt-2">No description provided.</p>
           <a href="{{repository.link}}" class="badge bg-dark text-decoration-none">Github Link</a>
         </div>
       

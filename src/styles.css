@@ -47,3 +47,22 @@ a{
     margin: auto;
   } 
 }
+
+/* style repo card */
+
+.repo-card{
+  
+  height: 26rem;
+
+
+}
+
+.repo-card .repo-description{
+ height:6rem;
+ background: #FCFAFA;
+ white-space: wrap;
+ text-overflow: ellipsis;
+ overflow:hidden;
+ padding-bottom:1rem;
+
+}
