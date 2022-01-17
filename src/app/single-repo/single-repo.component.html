@@ -15,8 +15,10 @@
       <p *ngIf="repo.description">Description: {{repo.description}}</p>
       <p *ngIf="!repo.description">Description: No Description Provided</p>
 
-      <p><span class="badge bg-dark mx-5">Forks: {{repo.forks}}</span>
-      <span class="badge bg-dark">Stars: {{repo.forks}}</span></p>
+      <p class="d-flex flex-wrap justify-content-around"><span class="badge bg-danger mx-5">Forks: {{repo.forks}}</span>
+      <span class="badge bg-dark mx-5">Stars: {{repo.forks}}</span>
+      <a href="{{repo.link}}" class="badge bg-success text-decoration-none" target="_blank">Github Link</a>
+    </p>
     
     </div>
   </div>

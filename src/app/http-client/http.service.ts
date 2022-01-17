@@ -118,7 +118,7 @@ export class HttpService {
       var results=response;
       var owner=results['owner'];
       console.log(results);
-      this.singleRepo.push(new Repository(results['id'],results['full_name'],results['description'],results['owner']['login'],results['forks_count'],results['git_url']));
+      this.singleRepo.push(new Repository(results['id'],results['full_name'],results['description'],results['owner']['login'],results['forks_count'],results['html_url']));
     }
     
   }
