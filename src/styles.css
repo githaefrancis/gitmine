@@ -33,3 +33,17 @@ a{
   transform: scale(0.8);
   transition: all .3s ease-in-out;
 }
+.mobile-search{
+  display: none;
+}
+
+@media only screen and (max-width:980px) {
+  .mobile-search{
+    display: flex;
+    justify-content: center;
+  }
+  .search-wrapper{
+    display: flex;
+    margin: auto;
+  } 
+}
