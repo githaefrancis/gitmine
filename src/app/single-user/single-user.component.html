@@ -1,10 +1,11 @@
+<div class="container-fluid">
 <div class="container">
   <div class="row" *ngFor="let user of users">
-    <p class="px-lg-3 mx-lg-5 badge bg-dark fs-4">{{ user.name }} Profile.</p>
-    <div class="col-lg-4 p-lg-5">
+    <p class="px-lg-3 mx-lg-5 badge bg-dark fs-4 mb-3">{{ user.name }} Profile.</p>
+    <div class="col-lg-4 p-lg-5 d-flex justify-content-center">
       <img src="{{ user.avatar }}" class="img-fluid" alt="" />
     </div>
-    <div class="col-lg-6 p-lg-5 mx-lg-5">
+    <div class="col-lg-6 p-lg-5 mt-4 m-lg-5 card border-0">
       <p>Name: {{ user.login }}</p>
 
       <p>
@@ -51,4 +52,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>
